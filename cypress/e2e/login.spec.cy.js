@@ -1,4 +1,4 @@
-import userData from '../fixtures/userData.json'
+import userData from '../fixtures/users/userData.json'
 
 describe('Orange HRM Tests', () => {
 
@@ -12,7 +12,7 @@ describe('Orange HRM Tests', () => {
   }
 
   it('Login - Success', () => {
-    cy.visit('opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorList.usernameField).type(userData.userSuccess.username)
     cy.get(selectorList.passwordField).type(userData.userSuccess.password)
     cy.get(selectorList.loginButton).click()
@@ -20,7 +20,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.dashboardGrid)
   })
     it('Login - Fail', () => {
-    cy.visit('opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorList.usernameField).type(userData.userFail.username)
     cy.get(selectorList.passwordField).type(userData.userFail.password)
     cy.get(selectorList.loginButton).click()
