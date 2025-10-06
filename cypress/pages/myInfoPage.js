@@ -21,30 +21,39 @@
             cy.get(this.selectorList().myInfoButton).click()
         }
 
-        fillInTheFields(){
-            cy.get(this.selectorList().firstNameField).clear().type('FirstNameTest')
-            cy.get(this.selectorList().lastNameField).clear().type('LastNameTest')
-            cy.get(this.selectorList().genericField).eq(3).clear().type('EmployeId')
-            cy.get(this.selectorList().genericField).eq(4).clear().type('OtherIdTest')
-            cy.get(this.selectorList().genericField).eq(5).clear().type('DriverLicenseNumberTest')
-            cy.get(this.selectorList().genericField).eq(6).clear().type('2025-03-10')
+        fillPersonalDetails(firstName,lastName){
+            cy.get(this.selectorList().firstNameField).clear().type(firstName)
+            cy.get(this.selectorList().lastNameField).clear().type(lastName)
+        }
+
+        fillEmployeeDetails(employeId,otherId,driverLicenseNumber,licenseDate){
+            cy.get(this.selectorList().genericField).eq(3).clear().type(employeId)
+            cy.get(this.selectorList().genericField).eq(4).clear().type(otherId)
+            cy.get(this.selectorList().genericField).eq(5).clear().type(driverLicenseNumber)
+            cy.get(this.selectorList().genericField).eq(6).clear().type(licenseDate)
             cy.get(this.selectorList().dateCloseButton).click()
+        }
+
+        fillStatusDetails(birthDate){
             cy.get(this.selectorList().comboBoximput).eq(0).click()
             cy.get(this.selectorList().secondItemComboBox).click()
             cy.get(this.selectorList().comboBoximput).eq(1).click()
             cy.get(this.selectorList().thirdItemCombobox).click()
             cy.get(this.selectorList().calendarIconButton).eq(1).click()
-            cy.get(this.selectorList().dateField).eq(1).clear().type('1992-04-21') 
+            cy.get(this.selectorList().dateField).eq(1).clear().type(birthDate) 
             cy.get(this.selectorList().dateCloseButton).click()
             cy.get(this.selectorList().genderOptionclick).eq(1).click()
-            cy.get(this.selectorList().submitButton).eq(0).click()
         }
 
-        alertSuccessfull(){
+        saveForm(){
+            cy.get(this.selectorList().submitButton).eq(0).click()
             cy.get('body').should('contain','Successfully Updated')
             cy.get('.oxd-toast-close')
         }
 
+  
+            
+        
 
     }
 
