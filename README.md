@@ -19,12 +19,16 @@ Then install all dependencies by running:
 # You open the Cypress UI
 
 npx cypress open
+```
+This will open the Cypress Test Runner interface, where you can interactively select and run your tests.
 
-
+```
 # Run the automation by command line
 
-npx cypress tun 
+npx cypress run 
 ```
+This command executes all tests in headless mode — ideal for CI/CD pipelines or automated workflows.
+
 
 # 🧰 Tech Stack
 
